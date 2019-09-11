@@ -2,11 +2,10 @@ const path = require('path')
 
 const resolve = dir => path.join(__dirname, dir)
 
-const BASE_URL = process.env.NODE_ENV === 'production' ? '/' : '/'
+const PUBLIC_PATH = process.env.NODE_ENV === "production" ? "/github-activity/" : "/"
 
 module.exports = {
   lintOnSave: false,
-  baseUrl: BASE_URL,
   chainWebpack: config => {
     config.resolve.alias
       .set('@', resolve('src'))
@@ -14,7 +13,18 @@ module.exports = {
   },
   // 打包时不生成.map文件
   productionSourceMap: false,
-  // devServer: {
-  //   proxy: 'http://localhost:3000'
-  // }
+  publicPath: PUBLIC_PATH,
+  devServer: {
+    port: 8080,
+    proxy: {
+      "/api": {
+        target: "https://api.github.com",
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          "^/api": ""
+        }
+      }
+    }
+  }
 }
