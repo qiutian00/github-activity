@@ -1,6 +1,6 @@
 <template>
   <div class="personal-box">
-    <div class="personal-body">
+    <div class="personal-body" @click="hanldUserDivClick">
       <div class="left">
         <div class="img">
           <img :style="{ background: 'url(' + personalData.img + ')' }" />
@@ -19,10 +19,16 @@
 </template>
 
 <script>
+import { viewURL } from '@/config'
 export default {
   name: "personal",
   props: {
     personalData: Object
+  },
+  methods: {
+    hanldUserDivClick () {
+      window.open(viewURL + this.personalData.username, '_blank');
+    }
   }
 };
 </script>

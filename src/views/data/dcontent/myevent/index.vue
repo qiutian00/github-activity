@@ -15,7 +15,7 @@
             {{ showDate(item.created_at) }}
           </td>
           <td class="col-md-2">{{ item.type }}</td>
-          <td class="col-md-4">{{ item.repo.name }}</td>
+          <td class="col-md-4"><a :href="getRepoUrl(item.repo.name)" target="_blank">{{ item.repo.name }}</a></td>
           <!-- <td class="col-md-4">{{ item.payload.commits }}</td> -->
         </tr>
       </tbody>
@@ -25,6 +25,7 @@
 
 <script>
 import { dateFormat } from '@/lib/tools'
+import { viewURL } from '@/config';
 
 export default {
   props: {
@@ -45,6 +46,9 @@ export default {
   methods: {
     showDate (dateStr) {
       return dateFormat(dateStr)
+    },
+    getRepoUrl:function(url){
+	    return viewURL + url;
     }
   },
 };
