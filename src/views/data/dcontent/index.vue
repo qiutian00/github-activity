@@ -44,7 +44,7 @@
       >
         <div class="content-wapper">
           <!-- <ve-line :data="chartData" :extend="extend"></ve-line>-->
-          <ve-bar :data="repoData" :extend="extend" :height="'350px'"></ve-bar>
+          <ve-bar :data="repoData" :extend="extend" :height="'350px'" @click="repoChatClick"></ve-bar>
           <nodata
             :nodata="$t('data.myevent.noRepoSize')"
             v-if="noRepoSize"
@@ -90,8 +90,26 @@ export default {
       },
       legend: {
         textStyle: { color: "#fff" },
-        right: "6%"
+        right: "3%"
       },
+      dataZoom: [
+        // {
+        //     type: 'slider',
+        //     show: true,
+        //     yAxisIndex: [0],
+        //     left: '96%',
+        //     // 数据窗口范围的起始百分比
+        //     start: 0,
+        //     width:12
+        // },
+        {
+            type: 'slider',
+            yAxisIndex: [0],
+            start: 0,
+            end: 12,
+            width:12
+        }
+      ],
       yAxis: {
         axisLabel: {
           textStyle: {
@@ -107,6 +125,13 @@ export default {
         }
       }
     };
+
+    // todo this not ok
+    this.chartEvents = {
+      click: function (e, params) {
+        console.table(e, params)
+      }
+    }
 
     return {
       chartData: LINE_DATA,
@@ -165,6 +190,11 @@ export default {
         .catch(err => {
           console.log(err.message);
         });
+    },
+    repoChatClick () {
+      // not ok
+      console.log(this);
+      // repoChatClick
     }
   },
   watch: {
