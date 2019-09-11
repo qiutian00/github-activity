@@ -5,7 +5,7 @@ const resolve = dir => path.join(__dirname, dir)
 const PUBLIC_PATH = process.env.NODE_ENV === "production" ? "/github-activity/" : "/"
 
 module.exports = {
-  lintOnSave: true,
+  lintOnSave: false,
   chainWebpack: config => {
     config.resolve.alias
       .set('@', resolve('src'))

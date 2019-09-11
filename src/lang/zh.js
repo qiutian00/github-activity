@@ -59,7 +59,7 @@ export default {
         messege: "最新消息"
       },
       message: {
-        pOne: "给了你一个",
+        pOne: "给了一个",
         pTwo: "操作"
       }
     }

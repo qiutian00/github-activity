@@ -3,9 +3,9 @@
     <dheader></dheader>
     <topnav></topnav>
     <div class="data-content">
-      <div class="data-time">
+      <!-- <div class="data-time">
         {{ $t("data.index") }}
-      </div>
+      </div> -->
       <div class="data-main">
         <div class="main-left">
           <dleft :personalData="personalData" :username="username"></dleft>

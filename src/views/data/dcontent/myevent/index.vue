@@ -12,7 +12,7 @@
       <tbody>
         <tr v-for="(item, index) in getData" :key="index">
           <td class="col-md-2">
-            {{ item.created_at.substring(0, 10) }}
+            {{ showDate(item.created_at) }}
           </td>
           <td class="col-md-2">{{ item.type }}</td>
           <td class="col-md-4">{{ item.repo.name }}</td>
@@ -24,6 +24,8 @@
 </template>
 
 <script>
+import { dateFormat } from '@/lib/tools'
+
 export default {
   props: {
     data: Array
@@ -39,7 +41,12 @@ export default {
         this.getData = data;
       }
     }
-  }
+  },
+  methods: {
+    showDate (dateStr) {
+      return dateFormat(dateStr)
+    }
+  },
 };
 </script>
 

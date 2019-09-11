@@ -5,7 +5,7 @@
         <li v-for="(item, index) in getData" :key="index">
           <a>
             <icon :type="'tongzhi1'" :size="'1.5rem'" :color="'#F0FF00'"></icon>
-            {{ index }}、{{ item.created_at.substring(0, 10) }} &nbsp;&nbsp;{{
+            {{ (index + 1) }}、{{ item.created_at.substring(0, 10) }} &nbsp;&nbsp;{{
               item.actor.login
             }}&nbsp; {{ $t("data.dright.message.pOne") }}
             {{ item.payload.action }}&nbsp; {{ $t("data.dright.message.pTwo") }}
