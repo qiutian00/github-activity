@@ -37,7 +37,9 @@
 </template>
 
 <script>
-import personal from "./personal";
+import personal from "./personal"
+import { getApiUrl } from  '@/lib/tools'
+
 export default {
   components: {
     personal
@@ -79,7 +81,7 @@ export default {
   methods: {
     getData(username) {
       this.$axios
-        .get("/api/users/" + username + "/repos")
+        .get(getApiUrl("/api/users/") + username + "/repos")
         .then(response => {
           let data = JSON.parse(JSON.stringify(response.data));
           if (data.length < 1) {

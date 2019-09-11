@@ -43,8 +43,10 @@
 </template>
 
 <script>
-import follower from "./follower";
-import message from "./message";
+import follower from "./follower"
+import message from "./message"
+import { getApiUrl } from  '@/lib/tools'
+
 export default {
   components: {
     follower,
@@ -68,7 +70,7 @@ export default {
   },
   methods: {
     getData(username) {
-      let comUrl = "/api/users/";
+      let comUrl = getApiUrl("/api/users/");
       let url1 = comUrl + username + "/followers";
       let url2 = comUrl + username + "/following";
       let url3 = comUrl + username + "/received_events";

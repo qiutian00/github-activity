@@ -1,6 +1,6 @@
 
 import moment from 'moment';
-import { global } from  '@/config'
+import { global, API_URL } from  '@/config'
 
 export const dateSimpleFormat = (dateStr) => {
   if (dateStr) {
@@ -18,3 +18,12 @@ export const dateFormat = (dateStr) => {
     return moment().format(global.dateFormatSytle)
   }
 }
+
+export const getApiUrl = (url) => {
+  if (url && process.env.NODE_ENV === "production") {
+    return url.replace(/\/api\//, API_URL);
+  } else {
+    return url
+  }
+}
+

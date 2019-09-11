@@ -62,6 +62,8 @@
 <script>
 import pmodal from "./pmodal";
 import Cookies from "js-cookie";
+import { getApiUrl } from  '@/lib/tools'
+
 export default {
   components: {
     pmodal
@@ -126,7 +128,7 @@ export default {
         return;
       } else {
         this.$axios
-          .get("/api/users/" + name)
+          .get(getApiUrl("/api/users/") + name)
           .then(response => {
             let res = JSON.parse(JSON.stringify(response));
             if (res.status === 200) {

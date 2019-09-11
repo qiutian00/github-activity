@@ -69,7 +69,9 @@
 <script>
 import dnumber from "./dnumber";
 import myevent from "./myevent";
-import { LINE_DATA } from "../test/data";
+import { LINE_DATA } from "../test/data"
+import { getApiUrl } from  '@/lib/tools'
+
 export default {
   components: {
     dnumber,
@@ -146,7 +148,7 @@ export default {
   },
   methods: {
     getData(username) {
-      let comUrl = "/api/users/";
+      let comUrl = getApiUrl("/api/users/");
       let url1 = comUrl + username + "/events";
       let url2 = comUrl + username + "/repos";
       this.$axios
