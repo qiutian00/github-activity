@@ -69,14 +69,14 @@ export default {
   data() {
     return {
       list: {},
-      username: "",
+      username: "qiutian00",
       leng: "中文",
       errname: "",
       inputval: false,
       nousename: false,
       namelg: false,
       checked: false,
-      showList: false
+      showList: false,
     };
   },
   computed: {
