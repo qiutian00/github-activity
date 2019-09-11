@@ -53,7 +53,7 @@ export default {
 
 <style lang="scss">
 .navbar {
-  top: -80px;
+  top: -45px;
   width: 202px;
   height: 50px;
   margin-bottom: 0;

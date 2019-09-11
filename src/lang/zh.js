@@ -40,10 +40,10 @@ export default {
         time: "操作时间",
         type: "类型",
         repos: "操作仓库",
-        remarks: "备注"
+        remarks: "other"
       }
     },
-    dheader: "github-activity数据平台",
+    dheader: "github-activity view",
     dleft: {
       accountStars: "仓库Stars详情",
       accountLeng: "仓库语言分类",

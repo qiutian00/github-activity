@@ -17,7 +17,7 @@ export default {
 <style lang="scss">
 .header {
   width: 100%;
-  height: 80px;
+  height: 50px;
   padding: 0 20px;
   .bg-header {
     width: 100%;
