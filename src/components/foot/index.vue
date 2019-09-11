@@ -1,13 +1,13 @@
 <template>
   <div class="footer-link">
-    <p>Copyright © 2018 Design and Development By codercao</p>
+    <p>Copyright © 2018 Design and Development By liwen</p>
     <p>
       Contact Me by github :
       <a
-        href="https://github.com/HongqingCao"
+        href="https://github.com/qiutian00"
         target="_blank"
-        title="HongqingCao"
-        >HongqingCao</a
+        title="qiutian00"
+        >qiutian00</a
       >
     </p>
   </div>

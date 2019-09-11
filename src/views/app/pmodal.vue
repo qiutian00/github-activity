@@ -1,5 +1,5 @@
-/* * @Introduce: github-activity服务条款弹框 * @Author: HongqingCao * @Date: 2019-05-10
-* @Last Modified by: HongqingCao * @Last Modified time: 2019-05-10 */
+/* * @Introduce: github-activity服务条款弹框 * @Author: qiutian00 * @Date: 2019-05-10
+* @Last Modified by: qiutian00 * @Last Modified time: 2019-05-10 */
 <template>
   <div class="mode-warp" v-if="isShow">
     <div class="mode-content">
@@ -19,8 +19,8 @@
           <p>{{ $t("app.pmodal.bP") }}</p>
           <p>
             {{ $t("app.pmodal.cPone")
-            }}<a href="https://github.com/HongqingCao" target="_blank"
-              >codercao</a
+            }}<a href="https://github.com/qiutian00" target="_blank"
+              >liwen</a
             >
             {{ $t("app.pmodal.cPtwo") }}
           </p>

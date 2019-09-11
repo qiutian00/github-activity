@@ -6,7 +6,7 @@
           <th class="col-md-2">{{ $t("data.myevent.table.time") }}</th>
           <th class="col-md-2">{{ $t("data.myevent.table.type") }}</th>
           <th class="col-md-4">{{ $t("data.myevent.table.repos") }}</th>
-          <th class="col-md-4">{{ $t("data.myevent.table.remarks") }}</th>
+          <!-- <th class="col-md-4">{{ $t("data.myevent.table.remarks") }}</th> -->
         </tr>
       </thead>
       <tbody>
@@ -16,7 +16,7 @@
           </td>
           <td class="col-md-2">{{ item.type }}</td>
           <td class="col-md-4">{{ item.repo.name }}</td>
-          <td class="col-md-4">{{ item.payload.commits }}</td>
+          <!-- <td class="col-md-4">{{ item.payload.commits }}</td> -->
         </tr>
       </tbody>
     </table>
@@ -48,7 +48,7 @@ export default {
   width: 100%;
   height: 100%;
   padding: 15px;
-  overflow: hidden;
+  overflow: auto;
   margin-top: -10px;
   .table {
     table-layout: fixed;

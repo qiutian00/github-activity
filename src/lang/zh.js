@@ -40,7 +40,7 @@ export default {
         time: "操作时间",
         type: "类型",
         repos: "操作仓库",
-        remarks: "other"
+        remarks: "备注"
       }
     },
     dheader: "github-activity view",
