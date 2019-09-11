@@ -1,6 +1,6 @@
 # github-activity
 
-use vuecli3 to create github activity by user
+use vuecli3 to create github activity by one user
 
 ## Project setup
 ```
