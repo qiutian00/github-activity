@@ -2,10 +2,10 @@ const path = require('path')
 
 const resolve = dir => path.join(__dirname, dir)
 
-const PUBLIC_PATH = process.env.NODE_ENV === "production" ? "/github-activity/" : "/"
+const PUBLIC_PATH = process.env.NODE_ENV === 'production' ? '/github-activity/' : '/'
 
 module.exports = {
-  lintOnSave: false,
+  lintOnSave: true,
   chainWebpack: config => {
     config.resolve.alias
       .set('@', resolve('src'))
@@ -17,12 +17,12 @@ module.exports = {
   devServer: {
     port: 8080,
     proxy: {
-      "/api": {
-        target: "https://api.github.com",
+      '/api': {
+        target: 'https://api.github.com',
         changeOrigin: true,
         ws: true,
         pathRewrite: {
-          "^/api": ""
+          '^/api': ''
         }
       }
     }

@@ -9,8 +9,8 @@
 
 <script>
 export default {
-  name: "indexbg"
-};
+  name: 'indexbg'
+}
 </script>
 
 <style lang="scss">

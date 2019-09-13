@@ -27,7 +27,7 @@ export default {
       getUserInfo({ userId: 21 }).then(res => {
         console.log('res: ', res)
       })
-    },
+    }
   }
 }
 </script>

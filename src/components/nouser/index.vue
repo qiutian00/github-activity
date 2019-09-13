@@ -30,23 +30,23 @@
 
 <script>
 export default {
-  name: "nouser",
+  name: 'nouser',
   props: {
     isShow: null
   },
-  data() {
+  data () {
     return {
       sayhidden: false
-    };
+    }
   },
   methods: {
-    closebtn() {
+    closebtn () {
       this.$router.push({
-        name: "index"
-      });
+        name: 'index'
+      })
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

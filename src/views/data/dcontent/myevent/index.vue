@@ -25,21 +25,21 @@
 
 <script>
 import { dateFormat } from '@/lib/tools'
-import { viewURL } from '@/config';
+import { viewURL } from '@/config'
 
 export default {
   props: {
     data: Array
   },
-  data() {
+  data () {
     return {
       getData: {}
-    };
+    }
   },
   watch: {
-    data(data) {
+    data (data) {
       if (data) {
-        this.getData = data;
+        this.getData = data
       }
     }
   },
@@ -47,11 +47,11 @@ export default {
     showDate (dateStr) {
       return dateFormat(dateStr)
     },
-    getRepoUrl:function(url){
-	    return viewURL + url;
+    getRepoUrl: function (url) {
+      return viewURL + url
     }
-  },
-};
+  }
+}
 </script>
 
 <style lang="scss">

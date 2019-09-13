@@ -21,16 +21,16 @@
 <script>
 import { viewURL } from '@/config'
 export default {
-  name: "personal",
+  name: 'personal',
   props: {
     personalData: Object
   },
   methods: {
     hanldUserDivClick () {
-      window.open(viewURL + this.personalData.username, '_blank');
+      window.open(viewURL + this.personalData.username, '_blank')
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

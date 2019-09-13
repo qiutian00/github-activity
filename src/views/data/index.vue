@@ -24,10 +24,10 @@
 </template>
 
 <script>
-import dheader from "./dheader";
-import dleft from "./dleft";
-import dcontent from "./dcontent";
-import dright from "./dright";
+import dheader from './dheader'
+import dleft from './dleft'
+import dcontent from './dcontent'
+import dright from './dright'
 export default {
   components: {
     dheader,
@@ -35,60 +35,59 @@ export default {
     dcontent,
     dright
   },
-  data() {
+  data () {
     return {
       isShow: false,
       pageShow: true,
       personalData: {},
       numberData: {},
-      username: ""
-    };
+      username: ''
+    }
   },
-  created() {
-    let username = this.$route.params.user;
-    this.getData(username);
+  created () {
+    let username = this.$route.params.user
+    this.getData(username)
   },
   methods: {
-    getData(username) {
+    getData (username) {
       this.$axios
-        .get("https://api.github.com/users/" + username)
+        .get('https://api.github.com/users/' + username)
         .then(response => {
-          let res = JSON.parse(JSON.stringify(response));
+          let res = JSON.parse(JSON.stringify(response))
           if (res.status === 200) {
-            this.username = username;
-            let data = res.data;
-            //个人图片、加入github时间
-            let sinceDate = data.created_at;
-            let joinDate = sinceDate.substring(0, 10);
-            let img = data.avatar_url;
+            this.username = username
+            let data = res.data
+            // 个人图片、加入github时间
+            let sinceDate = data.created_at
+            let joinDate = sinceDate.substring(0, 10)
+            let img = data.avatar_url
             let objP = {
               username: username,
               joinDate: joinDate,
               img: img
-            };
-            this.personalData = objP;
-            //仓库数、粉丝数、跟随数
-            let pubRepos = data.public_repos;
-            let followers = data.followers;
-            let following = data.following;
+            }
+            this.personalData = objP
+            // 仓库数、粉丝数、跟随数
+            let pubRepos = data.public_repos
+            let followers = data.followers
+            let following = data.following
             let objN = {
               pubRepos: pubRepos,
               followers: followers,
               following: following
-            };
-            this.numberData = objN;
-            this.pageShow = false;
+            }
+            this.numberData = objN
+            this.pageShow = false
           }
-          return;
         })
         .catch(err => {
-          this.pageShow = false;
-          this.isShow = true;
-          console.log(err.message);
-        });
+          this.pageShow = false
+          this.isShow = true
+          console.log(err.message)
+        })
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

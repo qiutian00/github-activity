@@ -21,11 +21,11 @@
 
 <script>
 export default {
-  name: "github",
+  name: 'github',
   props: {
     paths: String
   }
-};
+}
 </script>
 
 <style lang="scss">

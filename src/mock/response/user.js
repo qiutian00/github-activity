@@ -52,9 +52,9 @@ export const getUserInfo = (options) => {
     fruit2: '@fruit'
   }
 
-  let i = 3;
-  let arr = [];
-  while(i--) {
+  let i = 3
+  let arr = []
+  while (i--) {
     arr.push(template)
   }
   return Mock.mock(arr)

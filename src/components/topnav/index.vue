@@ -18,37 +18,37 @@
 </template>
 
 <script>
-import screenfull from "screenfull";
+import screenfull from 'screenfull'
 export default {
-  name: "topnav",
+  name: 'topnav',
   computed: {
     lang: {
-      get() {
-        return this.$store.state.language;
+      get () {
+        return this.$store.state.language
       }
     }
   },
   methods: {
-    fullBox() {
+    fullBox () {
       if (!screenfull.enabled) {
-        return false;
+        return false
       }
-      screenfull.toggle();
+      screenfull.toggle()
     },
-    changeLen() {
-      if (this.lang === "en") {
-        this.$i18n.locale = "zh";
-        this.$store.dispatch("setLanguage", "zh");
+    changeLen () {
+      if (this.lang === 'en') {
+        this.$i18n.locale = 'zh'
+        this.$store.dispatch('setLanguage', 'zh')
       } else {
-        this.$i18n.locale = "en";
-        this.$store.dispatch("setLanguage", "en");
+        this.$i18n.locale = 'en'
+        this.$store.dispatch('setLanguage', 'en')
       }
     },
-    goHome() {
-      this.$router.push({ path: "/" });
+    goHome () {
+      this.$router.push({ path: '/' })
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

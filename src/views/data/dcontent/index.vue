@@ -67,10 +67,10 @@
 </template>
 
 <script>
-import dnumber from "./dnumber";
-import myevent from "./myevent";
-import { LINE_DATA } from "../test/data"
-import { getApiUrl } from  '@/lib/tools'
+import dnumber from './dnumber'
+import myevent from './myevent'
+import { LINE_DATA } from '../test/data'
+import { getApiUrl } from '@/lib/tools'
 
 export default {
   components: {
@@ -81,7 +81,7 @@ export default {
     numberData: Object,
     username: String
   },
-  data() {
+  data () {
     this.extend = {
       series: {
         label: {
@@ -91,8 +91,8 @@ export default {
         }
       },
       legend: {
-        textStyle: { color: "#fff" },
-        right: "3%"
+        textStyle: { color: '#fff' },
+        right: '3%'
       },
       dataZoom: [
         // {
@@ -105,28 +105,28 @@ export default {
         //     width:12
         // },
         {
-            type: 'slider',
-            yAxisIndex: [0],
-            start: 0,
-            end: 12,
-            width:12
+          type: 'slider',
+          yAxisIndex: [0],
+          start: 0,
+          end: 12,
+          width: 12
         }
       ],
       yAxis: {
         axisLabel: {
           textStyle: {
-            color: "#fff"
+            color: '#fff'
           }
         }
       },
       xAxis: {
         axisLabel: {
           textStyle: {
-            color: "#fff"
+            color: '#fff'
           }
         }
       }
-    };
+    }
 
     // todo this not ok
     this.chartEvents = {
@@ -140,73 +140,71 @@ export default {
       myevent: [],
       noMyevent: false,
       repoData: {
-        columns: ["reposName", "size", "forks"],
+        columns: ['reposName', 'size', 'forks'],
         rows: []
       },
       noRepoSize: false
-    };
+    }
   },
   methods: {
-    getData(username) {
-      let comUrl = getApiUrl("/api/users/");
-      let url1 = comUrl + username + "/events";
-      let url2 = comUrl + username + "/repos";
+    getData (username) {
+      let comUrl = getApiUrl('/api/users/')
+      let url1 = comUrl + username + '/events'
+      let url2 = comUrl + username + '/repos'
       this.$axios
         .all([this.$axios.get(url1), this.$axios.get(url2)])
         .then(
           this.$axios.spread((res1, res2) => {
-            //我最近操作
-            let data1 = JSON.parse(JSON.stringify(res1.data));
+            // 我最近操作
+            let data1 = JSON.parse(JSON.stringify(res1.data))
             if (data1.length < 1) {
-              this.noMyevent = true;
+              this.noMyevent = true
             } else {
-              this.myevent = data1;
-              //console.log(this.myevent)
+              this.myevent = data1
+              // console.log(this.myevent)
             }
 
-            //每个仓库的大小
-            let data2 = JSON.parse(JSON.stringify(res2.data));
+            // 每个仓库的大小
+            let data2 = JSON.parse(JSON.stringify(res2.data))
             if (data2.length < 1) {
-              this.noRepoSize = true;
+              this.noRepoSize = true
             } else {
-              let dataR = [];
+              let dataR = []
               for (var i = 0; i < data2.length; i++) {
-                let reposName = data2[i].name;
-                let size = data2[i].size;
-                let forks = data2[i].forks;
+                let reposName = data2[i].name
+                let size = data2[i].size
+                let forks = data2[i].forks
                 let objR = {
                   reposName: reposName,
                   size: size,
                   forks: forks
-                };
-                dataR.push(objR);
+                }
+                dataR.push(objR)
               }
-              //console.log(dataR);
-              this.repoData.rows = dataR;
-              //console.log(this.repoData.rows)
+              // console.log(dataR);
+              this.repoData.rows = dataR
+              // console.log(this.repoData.rows)
             }
-
-            return;
           })
         )
         .catch(err => {
-          console.log(err.message);
-        });
+          console.log(err.message)
+        })
     },
     repoChatClick () {
       // not ok
-      console.log(this);
+      console.log(this)
       // repoChatClick
     }
   },
   watch: {
-    username(username) {
+    username (username) {
       if (username) {
-        this.getData(username);
+        this.getData(username)
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

@@ -21,39 +21,39 @@ export default {
   props: {
     data: Array
   },
-  data() {
+  data () {
     return {
       getData: {},
       activeIndex: 0
-    };
-  },
-  computed: {
-    marginTop() {
-      return -this.activeIndex * 6;
     }
   },
-  mounted() {
+  computed: {
+    marginTop () {
+      return -this.activeIndex * 6
+    }
+  },
+  mounted () {
     setInterval(() => {
       if (this.getData.length - 7 > 0) {
-        let vh = this.getData.length - 7;
+        let vh = this.getData.length - 7
         if (this.activeIndex < vh) {
-          this.activeIndex += 1;
+          this.activeIndex += 1
         } else {
-          this.activeIndex = 0;
+          this.activeIndex = 0
         }
       } else {
-        this.activeIndex = 0;
+        this.activeIndex = 0
       }
-    }, 2000);
+    }, 2000)
   },
   watch: {
-    data(data) {
+    data (data) {
       if (data) {
-        this.getData = data;
+        this.getData = data
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

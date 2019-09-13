@@ -43,9 +43,9 @@
 </template>
 
 <script>
-import follower from "./follower"
-import message from "./message"
-import { getApiUrl } from  '@/lib/tools'
+import follower from './follower'
+import message from './message'
+import { getApiUrl } from '@/lib/tools'
 
 export default {
   components: {
@@ -55,7 +55,7 @@ export default {
   props: {
     username: String
   },
-  data() {
+  data () {
     return {
       followers: [],
       noFollowers: false,
@@ -63,17 +63,17 @@ export default {
       noFollowing: false,
       messege: [],
       noMessege: false
-    };
+    }
   },
-  created() {
+  created () {
     // this.getData(this.username)
   },
   methods: {
-    getData(username) {
-      let comUrl = getApiUrl("/api/users/");
-      let url1 = comUrl + username + "/followers";
-      let url2 = comUrl + username + "/following";
-      let url3 = comUrl + username + "/received_events";
+    getData (username) {
+      let comUrl = getApiUrl('/api/users/')
+      let url1 = comUrl + username + '/followers'
+      let url2 = comUrl + username + '/following'
+      let url3 = comUrl + username + '/received_events'
       this.$axios
         .all([
           this.$axios.get(url1),
@@ -82,45 +82,43 @@ export default {
         ])
         .then(
           this.$axios.spread((res1, res2, res3) => {
-            //粉丝情况
-            let data1 = JSON.parse(JSON.stringify(res1.data));
+            // 粉丝情况
+            let data1 = JSON.parse(JSON.stringify(res1.data))
             if (data1.length < 1) {
-              this.noFollowers = true;
+              this.noFollowers = true
             } else {
-              this.followers = data1.reverse();
+              this.followers = data1.reverse()
             }
-            //跟随情况
-            let data2 = JSON.parse(JSON.stringify(res2));
+            // 跟随情况
+            let data2 = JSON.parse(JSON.stringify(res2))
             if (data2.data.length < 1) {
-              this.noFollowing = true;
+              this.noFollowing = true
             } else {
-              this.following = data2.data.reverse();
+              this.following = data2.data.reverse()
             }
 
-            //最新消息
-            let data3 = JSON.parse(JSON.stringify(res3));
+            // 最新消息
+            let data3 = JSON.parse(JSON.stringify(res3))
             if (data3.data.length < 1) {
-              this.noMessege = true;
+              this.noMessege = true
             } else {
-              this.messege = data3.data;
+              this.messege = data3.data
             }
-
-            return;
           })
         )
         .catch(err => {
-          console.log(err.message);
-        });
+          console.log(err.message)
+        })
     }
   },
   watch: {
-    username(username) {
+    username (username) {
       if (username) {
-        this.getData(username);
+        this.getData(username)
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

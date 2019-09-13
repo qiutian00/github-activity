@@ -7,13 +7,13 @@
 </template>
 
 <script>
-import Navbar from "./navbar";
+import Navbar from './navbar'
 export default {
-  name: "cheader",
+  name: 'cheader',
   components: {
     Navbar
   }
-};
+}
 </script>
 
 <style></style>

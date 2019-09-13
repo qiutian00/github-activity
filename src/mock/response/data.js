@@ -1,6 +1,5 @@
 import { doCustomTimes } from '@/lib/tools'
 import Mock from 'mockjs'
-const Random = Mock.Random
 
 export const getTableData = () => {
   const template = {

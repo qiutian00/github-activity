@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: "databox",
+  name: 'databox',
   props: {
     title: String,
     dheight: Number,
@@ -46,7 +46,7 @@ export default {
       default: true
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

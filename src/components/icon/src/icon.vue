@@ -4,25 +4,25 @@
 
 <script>
 export default {
-  name: "icon",
+  name: 'icon',
   props: {
     type: String,
     size: [Number, String],
     color: String
   },
   computed: {
-    styles() {
-      const style = {};
+    styles () {
+      const style = {}
 
       if (this.color) {
-        style.color = this.color;
+        style.color = this.color
       }
       if (this.size) {
-        style.fontSize = this.size;
+        style.fontSize = this.size
       }
 
-      return style;
+      return style
     }
   }
-};
+}
 </script>

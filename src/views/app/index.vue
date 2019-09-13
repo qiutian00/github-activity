@@ -60,101 +60,99 @@
 </template>
 
 <script>
-import pmodal from "./pmodal";
-import Cookies from "js-cookie";
-import { getApiUrl } from  '@/lib/tools'
+import pmodal from './pmodal'
+import Cookies from 'js-cookie'
+import { getApiUrl } from '@/lib/tools'
 
 export default {
   components: {
     pmodal
   },
-  data() {
+  data () {
     return {
       list: {},
-      username: "qiutian00",
-      leng: "中文",
-      errname: "",
+      username: 'qiutian00',
+      leng: '中文',
+      errname: '',
       inputval: false,
       nousename: false,
       namelg: false,
       checked: false,
-      showList: false,
-    };
+      showList: false
+    }
   },
   computed: {
     getlang: {
-      get() {
-        return this.$store.state.language;
+      get () {
+        return this.$store.state.language
       }
     }
   },
   watch: {
-    getlang(val) {
-      if (val === "en") {
-        this.leng = "English";
+    getlang (val) {
+      if (val === 'en') {
+        this.leng = 'English'
       } else {
-        this.leng = "中文";
+        this.leng = '中文'
       }
     }
   },
-  created() {
-    const chooseLanguage = Cookies.get("language");
-    if (chooseLanguage === "en") {
-      this.leng = "English";
+  created () {
+    const chooseLanguage = Cookies.get('language')
+    if (chooseLanguage === 'en') {
+      this.leng = 'English'
     } else {
-      this.leng = "中文";
+      this.leng = '中文'
     }
   },
   methods: {
-    checkebox() {
-      this.checked = !this.checked;
+    checkebox () {
+      this.checked = !this.checked
     },
-    changLen(val) {
+    changLen (val) {
       if (val === 1) {
-        this.leng = "中文";
-        this.$i18n.locale = "zh";
-        this.$store.dispatch("setLanguage", "zh");
+        this.leng = '中文'
+        this.$i18n.locale = 'zh'
+        this.$store.dispatch('setLanguage', 'zh')
       } else {
-        this.leng = "English";
-        this.$i18n.locale = "en";
-        this.$store.dispatch("setLanguage", "en");
+        this.leng = 'English'
+        this.$i18n.locale = 'en'
+        this.$store.dispatch('setLanguage', 'en')
       }
-      this.showList = false;
+      this.showList = false
     },
-    generate(username) {
-      let name = username;
+    generate (username) {
+      let name = username
       if (name.length <= 0) {
-        this.namelg = true;
-        return;
+        this.namelg = true
       } else {
         this.$axios
-          .get(getApiUrl("/api/users/") + name)
+          .get(getApiUrl('/api/users/') + name)
           .then(response => {
-            let res = JSON.parse(JSON.stringify(response));
+            let res = JSON.parse(JSON.stringify(response))
             if (res.status === 200) {
               this.$router.push({
-                name: "data",
+                name: 'data',
                 params: { user: name }
-              });
+              })
             }
-            return;
           })
           .catch(err => {
-            this.nousename = true;
-            this.errname = name;
-            console.log(err.message);
-          });
+            this.nousename = true
+            this.errname = name
+            console.log(err.message)
+          })
       }
     },
-    onfocus() {
-      this.namelg = false;
-      this.nousename = false;
+    onfocus () {
+      this.namelg = false
+      this.nousename = false
     },
-    showpm() {
-      this.$refs.pmodalChild.isShow = true;
+    showpm () {
+      this.$refs.pmodalChild.isShow = true
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

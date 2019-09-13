@@ -37,8 +37,8 @@
 </template>
 
 <script>
-import personal from "./personal"
-import { getApiUrl } from  '@/lib/tools'
+import personal from './personal'
+import { getApiUrl } from '@/lib/tools'
 
 export default {
   components: {
@@ -48,96 +48,95 @@ export default {
     personalData: Object,
     username: String
   },
-  data() {
+  data () {
     this.extend = {
       legend: {
-        textStyle: { color: "#fff" }
+        textStyle: { color: '#fff' }
       },
       grid: {
         textStyle: {
-          color: "#fff"
+          color: '#fff'
         }
       },
       series: {
-        radius: ["0", "40%"],
-        center: ["50%", "50%"]
+        radius: ['0', '40%'],
+        center: ['50%', '50%']
       }
-    };
+    }
     return {
       personalD: {},
       starData: {
-        columns: ["reposName", "getStars"],
+        columns: ['reposName', 'getStars'],
         rows: []
       },
       noStarData: false,
       languageData: {
-        columns: ["lang", "number"],
+        columns: ['lang', 'number'],
         rows: []
       },
       nolanguageData: false
-    };
+    }
   },
-  created() {},
+  created () {},
   methods: {
-    getData(username) {
+    getData (username) {
       this.$axios
-        .get(getApiUrl("/api/users/") + username + "/repos")
+        .get(getApiUrl('/api/users/') + username + '/repos')
         .then(response => {
-          let data = JSON.parse(JSON.stringify(response.data));
+          let data = JSON.parse(JSON.stringify(response.data))
           if (data.length < 1) {
-            this.noStarData = true;
+            this.noStarData = true
           } else {
-            let rowdata = [];
-            let languages = {};
+            let rowdata = []
+            let languages = {}
             for (var i = 0; i < data.length; i++) {
               // 仓库和仓库star
-              let reposName = data[i].name;
-              let getStars = data[i].stargazers_count;
+              let reposName = data[i].name
+              let getStars = data[i].stargazers_count
               let obj = {
                 reposName: reposName,
                 getStars: getStars
-              };
-              rowdata.push(obj);
+              }
+              rowdata.push(obj)
 
-              //梳理语言，计算语言类型和各个语言的数量
-              let langData = data[i].language;
+              // 梳理语言，计算语言类型和各个语言的数量
+              let langData = data[i].language
               if (langData) {
                 if (langData in languages) {
-                  languages[langData]++;
+                  languages[langData]++
                 } else {
-                  languages[langData] = 1;
+                  languages[langData] = 1
                 }
               }
             }
-            //把值附到starData.rows
-            this.starData.rows = rowdata;
-            //console.log(this.starData.rows)
+            // 把值附到starData.rows
+            this.starData.rows = rowdata
+            // console.log(this.starData.rows)
 
-            //重新组装语言封成对象
-            let objL = JSON.parse(JSON.stringify(languages));
-            let dataL = [];
+            // 重新组装语言封成对象
+            let objL = JSON.parse(JSON.stringify(languages))
+            let dataL = []
             for (var key in objL) {
-              dataL.push({ lang: key, number: objL[key] });
+              dataL.push({ lang: key, number: objL[key] })
             }
-            this.languageData.rows = dataL;
-            //console.log(objL)
-            //console.log(this.languageData.rows)
+            this.languageData.rows = dataL
+            // console.log(objL)
+            // console.log(this.languageData.rows)
           }
-          return;
         })
         .catch(err => {
-          console.log(err.message);
-        });
+          console.log(err.message)
+        })
     }
   },
   watch: {
-    username(username) {
+    username (username) {
       if (username) {
-        this.getData(username);
+        this.getData(username)
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

@@ -20,12 +20,12 @@
 </template>
 
 <script>
-import Vue from "vue";
-import VueParticles from "vue-particles";
-Vue.use(VueParticles);
+import Vue from 'vue'
+import VueParticles from 'vue-particles'
+Vue.use(VueParticles)
 export default {
-  name: "particles"
-};
+  name: 'particles'
+}
 </script>
 
 <style>

@@ -19,19 +19,19 @@ export default {
   props: {
     data: Array
   },
-  data() {
+  data () {
     return {
       getData: {}
-    };
+    }
   },
   watch: {
-    data(data) {
+    data (data) {
       if (data) {
-        this.getData = data;
+        this.getData = data
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

@@ -7,11 +7,11 @@
 
 <script>
 export default {
-  name: "nodata",
+  name: 'nodata',
   props: {
     nodata: String
   }
-};
+}
 </script>
 
 <style lang="scss">

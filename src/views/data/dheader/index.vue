@@ -10,8 +10,8 @@
 
 <script>
 export default {
-  name: "dheader"
-};
+  name: 'dheader'
+}
 </script>
 
 <style lang="scss">

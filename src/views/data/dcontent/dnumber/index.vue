@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "dnumber",
+  name: 'dnumber',
   props: {
     size: [Number, String],
     time: {
@@ -28,58 +28,58 @@ export default {
     icon: String,
     dheight: Number
   },
-  data() {
+  data () {
     return {
       amount: 0
-    };
+    }
   },
   watch: {
-    dnumber(val) {
+    dnumber (val) {
       if (val > 0) {
-        this.numFun(0, val);
+        this.numFun(0, val)
       }
     }
   },
   methods: {
-    numFun(startNum, maxNum) {
-      var that = this;
-      let numText = startNum;
-      let golb; // 为了清除requestAnimationFrame
-      function numSlideFun() {
+    numFun (startNum, maxNum) {
+      var that = this
+      let numText = startNum
+      let golb // 为了清除requestAnimationFrame
+      function numSlideFun () {
         // 数字动画
-        //numText+=1; // 速度的计算可以为小数 。数字越大，滚动越快
+        // numText+=1; // 速度的计算可以为小数 。数字越大，滚动越快
         if (maxNum < 100) {
-          numText += 1;
+          numText += 1
         } else {
-          numText += 5;
+          numText += 5
         }
         if (numText >= maxNum) {
-          numText = maxNum;
-          cancelAnimationFrame(golb);
+          numText = maxNum
+          cancelAnimationFrame(golb)
         } else {
-          golb = requestAnimationFrame(numSlideFun);
+          golb = requestAnimationFrame(numSlideFun)
         }
-        that.amount = numText;
+        that.amount = numText
         // console.log(numText)
       }
-      numSlideFun(); // 调用数字动画
+      numSlideFun() // 调用数字动画
     }
   },
   computed: {
-    styles() {
-      const style = {};
+    styles () {
+      const style = {}
 
       if (this.color) {
-        style.color = this.color;
+        style.color = this.color
       }
       if (this.size) {
-        style.fontSize = this.size;
+        style.fontSize = this.size
       }
 
-      return style;
+      return style
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

@@ -47,18 +47,18 @@
 
 <script>
 export default {
-  name: "pmodal",
-  data() {
+  name: 'pmodal',
+  data () {
     return {
       isShow: false
-    };
+    }
   },
   methods: {
-    closebtn() {
-      this.isShow = false;
+    closebtn () {
+      this.isShow = false
     }
   }
-};
+}
 </script>
 
 <style lang="scss">
